@@ -64,24 +64,34 @@ public class Table
     public Table(String table_name, Table from_table, ArrayList<String> selected_fields_to_present,String selected_field_to_check,ArrayList<String> selected_values) 
     // create table from select
     {
+        //position 
         int posittion = -1;
+        //name of the file the data will be saved
         name = new String(table_name);
+        // Arraylist with possitions of fields in the csv
         ArrayList<Integer> colPositions = new ArrayList<Integer>();
+        // selected_fields_to_present : the fields that we want to show on csv
         for (int i = 0; i<selected_fields_to_present.size(); i++) {
             fields.add(selected_fields_to_present.get(i));
         }
+        //we put on colPosition Arraylist the possition of the fields
         for (int i = 0; i<selected_fields_to_present.size(); i++) {
             colPositions.add(from_table.fields.indexOf(selected_fields_to_present.get(i)));
         }
+        //check if selected_fields_to_check is not null and we check 
+        //if thew possition is -1 
+        //-1 means the possition is empty
         if (selected_field_to_check != null) {
             posittion = from_table.fields.indexOf(selected_field_to_check); 
             if (posittion==-1){
                 System.out.println("invalid field name ("+selected_field_to_check+") for select ");
                 System.exit(0);
             }     
-        }                  
+        }  
         for (int i=0; i<from_table.data.size(); i++){
             if (selected_field_to_check != null){
+                //if the selected_fields_to_check is not null
+                //we put the data of the selected fields to the data array 
                 if (selected_values.contains(from_table.data.get(i).get(posittion))){
                     ArrayList<String> record = new ArrayList<String>();      
                     for (int k = 0; k<colPositions.size(); k++) {
@@ -90,6 +100,8 @@ public class Table
                     data.add(record);
                 }
             }else {
+                //if the selected_fields_to_check is null
+                //we put the data off all fields to the data array 
                 ArrayList<String> record = new ArrayList<String>();
                 for (int k = 0; k < colPositions.size(); k++) {
                     record.add(from_table.data.get(i).get(colPositions.get(k)));
