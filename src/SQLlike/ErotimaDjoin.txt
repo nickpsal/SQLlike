@@ -4,5 +4,5 @@ create ErotimaDjoin;
 join course,ErotimaDjoin
 where courseID==studentCourse_courseID
 create ErotimaDbjoin;
-select ErotimaDjoin_student_lastName,ErotimaDjoin_student_firstName,course_course from ErotimaDbjoin
+select recordID,ErotimaDjoin_student_lastName,ErotimaDjoin_student_firstName,course_course from ErotimaDbjoin
 create ErotimaDcjoin
