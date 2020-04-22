@@ -1,0 +1,6 @@
+select lastName, firstName from student
+where firstName=="ΠΕΤΡΟΣ" or "ΠΑΥΛΟΣ" 
+create ErotimaDselect;
+join student,studentCourse 
+where recordID==studentID
+create ErotimaDjoin
