@@ -80,7 +80,6 @@ public class Table
         }
         //check if selected_fields_to_check is not null and we check 
         //if thew possition is -1 
-        //-1 means the possition is empty
         if (selected_field_to_check != null) {
             posittion = from_table.fields.indexOf(selected_field_to_check); 
             if (posittion==-1){
